@@ -1,0 +1,13 @@
+body {
+  background: lightblue;
+}
+
+#root {
+  margin: 5rem;
+  padding: 2rem;
+  background: white;
+}
+
+@import "components/userView.scss";
+@import "components/projectView.scss";
+@import "components/projectListView.scss";
