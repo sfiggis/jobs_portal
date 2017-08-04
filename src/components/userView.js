@@ -31,23 +31,23 @@ class ShowUser extends Component {
 
 class EditUser extends Component {
   render() {
-    return (
-      <div onDoubleClick={ this.props.parent.show }>
-        <fieldset>
-          <input id="firstName" className="edit-field" defaultValue={ this.props.user.firstName } onChange={ this.props.parent.handleChange }/>
-          <input id="lastName" className="edit-field" defaultValue={ this.props.user.lastName } onChange={ this.props.parent.handleChange }/>
-        </fieldset>
-        <fieldset>
-          <input id="jobTitle" className="edit-field" defaultValue={ this.props.user.jobTitle } onChange={ this.props.parent.handleChange }/>
-          <input id="location" className="edit-field" defaultValue={ this.props.user.location } onChange={ this.props.parent.handleChange }/>
-       </fieldset> 
-       <fieldset>
-          <input id="tagline" className="edit-field" defaultValue={ this.props.user.tagline } onChange={ this.props.parent.handleChange }/>
-       </fieldset> 
-      </div> 
-    )
-  }
-}
+      return (
+        <div onDoubleClick={ this.props.parent.show }>
+          <fieldset>
+            <input id="firstName" className="edit-field" defaultValue={ this.props.parent.state.currentUser.firstName } onBlur={ this.props.parent.handleChange }/>
+            <input id="lastName" className="edit-field" defaultValue={ this.props.parent.state.currentUser.lastName } onBlur={ this.props.parent.handleChange }/>
+          </fieldset>
+          <fieldset>
+            <input id="jobTitle" className="edit-field" defaultValue={ this.props.parent.state.currentUser.jobTitle } onBlur={ this.props.parent.handleChange }/>
+            <input id="location" className="edit-field" defaultValue={ this.props.parent.state.currentUser.location } onBlur={ this.props.parent.handleChange }/>
+         </fieldset> 
+         <fieldset>
+            <input id="tagline" className="edit-field" defaultValue={ this.props.parent.state.currentUser.tagline } onBlur={ this.props.parent.handleChange }/>
+         </fieldset> 
+        </div> 
+      );
+  };
+};
 
 class UserView extends Component {
 
@@ -109,7 +109,7 @@ class UserView extends Component {
 
   handleChange(event) {
     var object = { [event.target.id]: event.target.value };
-     this.props.user.update(object);
+     this.state.currentUser.update(object);
   };
 };
 

@@ -28,10 +28,21 @@ class User {
   }
 
   save() {
-    if(this.id === undefined) this.id = uuidv1();
-
-    this.store.setItem(this.id, this.toJSON());
-    }
+    fetch("http://localhost:4000/users/" + this.id, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        first_name: this.firstName,
+        last_name: this.lastName,
+        job_title: this.jobTitle,
+        location: this.location,
+        tagline: this.tagline,
+        img_url: this.imgUrl
+      })
+    });
+  };
 
   toJSON() {
       return JSON.stringify(this.attributes());
