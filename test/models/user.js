@@ -1,18 +1,22 @@
 import { expect } from 'chai';
 import User from '../../src/models/user';
+import { LocalStorage } from 'node-localstorage';
 
 describe('User', function() {
 
   var user;
+  var localStorage;
 
   beforeEach(function() {
+    localStorage = new LocalStorage('./test/test.ls');
     user = new User({
       firstName: 'Sophie',
       lastName: 'Figgis',
       jobTitle: 'Full Stack Developer',
       location: 'Windsor, UK',
       tagline: 'javascript... hmm...',
-      imgUrl: 'http://cdn.viralscape.com/wp-content/uploads/2014/09/Computer-Cat.jpg'
+      imgUrl: 'http://cdn.viralscape.com/wp-content/uploads/2014/09/Computer-Cat.jpg',
+      store: localStorage
     });
   });
 
@@ -53,4 +57,25 @@ describe('User', function() {
     expect(user.firstName).to.eq("Jody");
     expect(user.lastName).to.eq("Rogan");
   })
+
+
+  describe("save", function() {
+    beforeEach(function() {
+      user.save();
+    });
+
+    it("generates an id", function() {
+      expect(user.id).to.not.be.undefined;
+      expect(typeof(user.id)).to.eq('string');
+    });
+
+    it("saves in local storage", function() {
+      expect(localStorage.length).to.eq(1);
+      expect(JSON.parse(localStorage.getItem(user.id))).to.deep.eq(user);
+    });
+
+    afterEach(function() {
+      localStorage.clear();
+    })
+  });
 });

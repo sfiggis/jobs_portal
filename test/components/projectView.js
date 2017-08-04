@@ -21,7 +21,7 @@ describe("ProjectView component", function() {
 
     it("creates a div with a class name of project-view", function() {
       var component = render(<ProjectView project={ project } />);
-      expect(component.find("div").length).to.eq(1);
+      expect(component.find("div").length).to.eq(2);
       expect(component.find("div").hasClass("project-view")).to.eq(true);
     });
 
@@ -33,25 +33,6 @@ describe("ProjectView component", function() {
     });
     it("displays a project's description as a paragraph", function() {
       expect(component.find("p").first().text()).to.eq('website for selecting and providing courses');
-    });
-    it("displays a project image as image element", function() {
-      var component = render(<UserView user={ user } />);
-      expect(component.find("img")[0].attribs.src).to.eq('http://cdn.viralscape.com/wp-content/uploads/2014/09/Computer-Cat.jpg');
-    });
-  });
-
-  describe("editing project", function() {
-    beforeEach(function() {
-      var component = mount(<ProjectView project={ project } />);
-      console.log(component.find("h3").first());
-      component.find("h3").first().simulate("dblclick");
-    });
-
-    it("displays the project fields in edit boxes for the user to change", function() {
-      const inputs = component.find("input.edit-field")
-      expect(inputs).to.have.length(3);
-      expect(inputs.first().html()).contains('Gravy Train');
-      expect(inputs.last().html()).contains('website for selecting and providing courses');
     });
   });
 });

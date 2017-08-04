@@ -17,7 +17,7 @@ describe("UserView component", function() {
         jobTitle: 'Full Stack Developer',
         location: 'Windsor, UK',
         tagline: 'javascript... hmm...',
-        imgUrl: 'http://cdn.viralscape.com/wp-content/uploads/2014/09/Computer-Cat.jpg'
+        imgUrl: 'http://cdn.viralscape.com/wp-content/uploads/2014/09/Computer-Cat.jpg',
       });
 
       component = mount(<UserView user={ user } />);
