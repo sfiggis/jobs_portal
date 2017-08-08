@@ -6,7 +6,7 @@ class ShowProject extends Component {
   render() {
     if (this.props.project !== undefined) {
       return (
-        <div>
+        <div key={ "project" + this.id }>
           <img id="profile-img" alt="profile" src={ this.props.project.imgUrl }/>
           <div id="project-info" onDoubleClick={ this.props.parent.edit }>
             <h2>
@@ -31,7 +31,7 @@ class EditProject extends Component {
   render() {
     if (this.props.project !== undefined) {
       return (
-        <div onDoubleClick={ this.props.parent.show }>
+        <div onDoubleClick={ this.props.parent.show } key={ "project" + this.id }>
           <fieldset>
             <input id="name" className="edit-field" defaultValue={ this.props.parent.state.currentProject.name } onBlur={ this.props.parent.handleChange }/>
           </fieldset>
@@ -85,10 +85,6 @@ class ProjectView extends Component {
     });
   };
 };
-
-function snakeToCamel(s){
-    return s.replace(/(\_\w)/g, function(m){return m[1].toUpperCase();});
-}
 
 
 export default ProjectView;

@@ -16,8 +16,8 @@ class ProjectListView extends Component {
     var project;
     var user = this.props.user
     const listItems = this.state.projectList.map((project) =>
-      <li className="project">
-        <ProjectView project={ project } user={ user }/>
+      <li className="project" key={ project.id }>
+        <ProjectView project={ project } user={ user } />
       </li>
     );
     return(
