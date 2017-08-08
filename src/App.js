@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import UserView from  './components/userView';
-import User from './models/user';
 import 'normalize.css';
 import './css/app.css';
 import 'whatwg-fetch'

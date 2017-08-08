@@ -1,9 +1,6 @@
-const uuidv1 = require('uuid/v1');
-
 class User {
   constructor(options) {
     this.id = 1;
-    this.store = localStorage;
     this.firstName = options.firstName;
     this.lastName = options.lastName;
     this.jobTitle = options.jobTitle;
@@ -56,7 +53,6 @@ class User {
       location: this.location,
       tagline: this.tagline,
       imgUrl: this.imgUrl,
-      store: this.store
     }
   }
 }

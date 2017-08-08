@@ -20,7 +20,7 @@ class ShowUser extends Component {
             { this.props.user.tagline }
           </h4> 
         </div>
-        <ProjectListView />
+        <ProjectListView user={ this.props.user }/>
       </div>
       );  
     } else {
@@ -65,7 +65,7 @@ class UserView extends Component {
 
   edit() {
     this.setState( {
-      view: <EditUser user={ this.state.currrentUser } parent={ this } />
+      view: <EditUser user={ this.state.currentUser } parent={ this } />
     });
   };
 
