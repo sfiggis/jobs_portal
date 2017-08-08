@@ -52,4 +52,15 @@ describe("editing project", function() {
     });
   });
 
+  describe("updating project", function() {
+    beforeEach(function() {
+      component.setState({ name: "Apples"})
+      component.setState({ description: "apples and pears falling down the stairs"})
+      });
+
+    it("updates the project's name and description", function() {
+      expect(component.state().name).to.eq("Apples");
+      expect(component.state().description).to.eq("apples and pears falling down the stairs");
+    });
+  });
 });
