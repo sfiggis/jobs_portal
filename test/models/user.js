@@ -8,16 +8,17 @@ describe('User', function() {
   var localStorage;
 
   beforeEach(function() {
-    localStorage = new LocalStorage('./test/test.ls');
     user = new User({
       firstName: 'Sophie',
       lastName: 'Figgis',
       jobTitle: 'Full Stack Developer',
       location: 'Windsor, UK',
       tagline: 'javascript... hmm...',
-      imgUrl: 'http://cdn.viralscape.com/wp-content/uploads/2014/09/Computer-Cat.jpg',
-      store: localStorage
+      imgUrl: 'http://cdn.viralscape.com/wp-content/uploads/2014/09/Computer-Cat.jpg'
     });
+     user.state = {
+        currentUser: user
+      };
   });
 
   it('provides the firstName', function() {
@@ -66,16 +67,8 @@ describe('User', function() {
 
     it("generates an id", function() {
       expect(user.id).to.not.be.undefined;
-      expect(typeof(user.id)).to.eq('string');
+      expect(typeof(user.id)).to.eq('number');
     });
 
-    it("saves in local storage", function() {
-      expect(localStorage.length).to.eq(1);
-      expect(JSON.parse(localStorage.getItem(user.id))).to.deep.eq(user);
-    });
-
-    afterEach(function() {
-      localStorage.clear();
-    })
   });
 });
