@@ -29,7 +29,7 @@ describe("UserView component", function() {
 
     it("creates a div with a class name of user-view", function() {
       var component = render(<UserView user={ user } />);
-      expect(component.find("div").length).to.eq(6);
+      expect(component.find("div").length).to.eq(4);
       expect(component.find("div").hasClass("user-view")).to.eq(true);
     });
 
