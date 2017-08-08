@@ -63,29 +63,6 @@ class ProjectView extends Component {
     this.handleChange = this.handleChange.bind(this);
   };
 
-  componentDidMount() {
-    var view = this;
-    var projectProperties = {};
-    fetch("http://localhost:4000/projects", {
-      credentials: 'include',
-      headers: {
-        'content-type': 'application/json',
-        'accepts': 'application/json',
-        'Access-Control-Allow-Origin':'http://localhost:4000'
-      }
-    }).then((body) => {
-      return body.json();
-      }).then(function(parsedData) {
-        Object.keys(parsedData[0]).map(function(data) {
-          projectProperties[snakeToCamel(data)] = parsedData[0][data];
-        });
-        var project = new Project(projectProperties);
-        view.setState({
-          currentProject: project,
-          view: <ShowProject project={ project } parent={view} />
-        });
-      });
-  };
   render() {
     return <div className="project-view">
     { this.state.view }

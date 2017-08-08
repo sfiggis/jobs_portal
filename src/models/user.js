@@ -40,21 +40,6 @@ class User {
       })
     });
   };
-
-  toJSON() {
-      return JSON.stringify(this.attributes());
-  }
-
-  attributes() {
-    return {
-      firstName: this.firstName,
-      lastName: this.lastName,
-      jobTitle: this.jobTitle,
-      location: this.location,
-      tagline: this.tagline,
-      imgUrl: this.imgUrl,
-    }
-  }
 }
 
 export default User;
