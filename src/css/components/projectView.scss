@@ -1,11 +1,15 @@
 .project-view {
-  #project-img {
-    height: 7rem;
-    display: inline-block;
-  }
-  #project-info {
-    display:inline-block;
-    vertical-align: top;
-    margin-left: 3rem;
+  .singleProject {
+    margin-top: 4rem;
+    #project-img {
+      width: 10rem;
+      display: inline-block;
+    }
+    
+    #project-info {
+      display:inline-block;
+      vertical-align: top;
+      margin-left: 3rem;
+    }
   }
 }

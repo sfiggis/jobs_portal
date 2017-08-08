@@ -6,8 +6,8 @@ class ShowProject extends Component {
   render() {
     if (this.props.project !== undefined) {
       return (
-        <div key={ "project" + this.id }>
-          <img id="profile-img" alt="profile" src={ this.props.project.imgUrl }/>
+        <div className="singleProject" key={ "project" + this.id }>
+          <img id="project-img" alt="project" src={ this.props.project.imgUrl }/>
           <div id="project-info" onDoubleClick={ this.props.parent.edit }>
             <h2>
               { this.props.project.name }
